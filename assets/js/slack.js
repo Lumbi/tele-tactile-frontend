@@ -24,7 +24,10 @@
                                 data.messages[index].ts = zeroPadding(date.getHours(), 2) + ':' + zeroPadding(date.getMinutes(), 2);
                                 data.messages[index].user = user.user;
 
-                                var output = Mustache.render(template, data.messages[index]);
+                                // Mustache not redering on firefox...
+                                //var output = Mustache.render(template, data.messages[index]);
+
+                                var output = formatMessage(data.messages[index]);
 
                                 $('#slack-chat').append(output);
                             }
@@ -35,3 +38,16 @@
         });
     }
 })();
+
+function formatMessage(message) {
+    var html = '<div class="slack-message">' +
+        '<img class="slack-user-picture" src="' + message.user.profile.image_48 + '" alt="profile picture" width="40" height="40"/>' +
+        '<div class="slack-message-content">' +
+        '<strong class="slack-user-name">' + message.user.name + '</strong>' +
+        '<time class="slack-date">' + message.ts + '</time>' +
+        '<p class="message-body">' + message.text + '</p>' +
+        '</div>' +
+        '</div>';
+
+    return html;
+}

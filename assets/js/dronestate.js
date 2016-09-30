@@ -8,34 +8,39 @@ function fetchAPI() {
     // TODO fetch api then append TR
     var drones = [
         {
-            name: "Niki",
-            state: "running",
-            stateDescription: "Prête pour tout",
-            stateInfo: []
+            Id: 1,
+            Name: "Niki",
+            GoodToFly: true,
+            StateDescription: "Prête pour tout",
+            StateInfo: []
         },
         {
-            name: "Viki",
-            state: "",
-            stateDescription: "Non-assemblé",
-            stateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
+            Id: 2,
+            Name: "Viki",
+            GoodToFly: false,
+            StateDescription: "Non-assemblé",
+            StateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
         },
         {
-            name: "V8",
-            state: "running",
-            stateDescription: "Prête pour les test",
-            stateInfo: []
+            Id: 3,
+            Name: "V8",
+            GoodToFly: true,
+            StateDescription: "Prête pour les test",
+            StateInfo: []
         },
         {
-            name: "V7",
-            state: "",
-            stateDescription: "Dead!",
-            stateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
+            Id: 4,
+            Name: "V7",
+            GoodToFly: false,
+            StateDescription: "Dead!",
+            StateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
         },
         {
-            name: "V7 (2)",
-            state: "",
-            stateDescription: "Non-assemblé",
-            stateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
+            Id: 5,
+            Name: "V7 (2)",
+            GoodToFly: false,
+            StateDescription: "Non-assemblé",
+            StateInfo: ["Replugger les cables", "Réparer 2 hélices", "manque de redbull"]
         }
     ];
 
@@ -47,12 +52,12 @@ function fetchAPI() {
 
     drones.forEach(function (drone) {
         // TODO for each drone
-        var name = drone.name;
-        var state = drone.state;
-        var stateDescription = drone.stateDescription;
-        var stateInfo = drone.stateInfo;
+        var name = drone.Name;
+        var state = drone.GoodToFly;
+        var stateDescription = drone.StateDescription;
+        var stateInfo = drone.StateInfo;
         names.push(name);
-        if (state == 'running') {
+        if (state == true) {
             running += 1;
         }
 
@@ -189,69 +194,3 @@ window.onclick = function (event) {
         }
     });
 }
-
-/*
- <div class="card">
- <div class="header">
- <h4 class="title">État des drones</h4>
- TODO number of drone ready to fly
- <p class="category">3 drones prêt à voler</p>
- </div>
- <div class="content">
- <div class="table-full-width">
- <table class="table dropdown-droneinfo">
- <tbody>
- <tr>
- <th class="text-center ">Nom</th>
- <th class="text-center">État</th>
- </tr>
- TODO Display TD's and if state!=running display modal and link modal to TR
- <tr>
- <td class="text-center navbar-ct-green">Drone 1</td>
- <td class="text-center navbar-ct-green">Prêt à voler</td>
- </tr>
- <tr>
- <td class="text-center navbar-ct-green">Drone 2</td>
- <td class="text-center navbar-ct-green">Prêt à voler</td>
- </tr>
- <tr id="myBtn">
- <td class="text-center navbar-ct-red">Drone 3</td>
- <td class="text-center navbar-ct-red">Réparation
- <!-- Taken from w3schools -->
-
- <!-- The Modal -->
- <div id="myModal" class="modal">
-
- <!-- Modal content -->
- <div class="modal-content">
- <div class="modal-header">
- <span class="close-modal">×</span>
- <h2>Drone 3</h2>
- </div>
- <div class="modal-body">
- <p class="drone-state-info">Élice 3 brisée</p>
- <p class="drone-state-info">Batterie perdue</p>
- </div>
- <div class="modal-footer">
- <h3>Dernière modification : 31-05-2016</h3>
- </div>
- </div>
- </div>
- <!-- Modal end -->
- </td>
- </tr>
- <tr>
- <td class="text-center navbar-ct-green">Drone 4</td>
- <td class="text-center navbar-ct-green">Prêt à voler</td>
- </tr>
- <tr>
- <td class="text-center navbar-ct-red">Drone 5</td>
- <td class="text-center navbar-ct-red">Mort</td>
- </tr>
- </tbody>
- </table>
- </div>
-
- </div>
- </div>
- */

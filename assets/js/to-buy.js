@@ -24,12 +24,29 @@ var toBuy = [
 
 function buildList() {
     $.get("assets/html/to-buy-template.html", function (source) {
-        var template = Handlebars.compile(source);
+        // not working with firefox
+        //var template = Handlebars.compile(source);
 
         toBuy.forEach(function (item) {
-            $('#tobuy').append(template(item));
+            $('#tobuy').append(formatList(item));
         });
     });
 }
 
 buildList();
+
+function formatList(item) {
+    var html = '<tr>' +
+        '<td>' + item.Name + '</td>' +
+        '<td class="td-actions text-right">' +
+        ' <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs" onclick="edit(' + item.Id + ')">' +
+        '<i class="fa fa-edit"></i>' +
+        '</button>' +
+        '<button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" onclick="remove(' + item.Id + ')">' +
+        ' <i class="fa fa-times"></i>' +
+        '</button>' +
+        '</td>' +
+        '</tr>';
+
+    return html;
+}

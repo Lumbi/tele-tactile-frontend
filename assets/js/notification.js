@@ -6,17 +6,19 @@
 
 var notifications = [
     {
-        path: "https://www.youtube.com/user/LeZap2Spi0n",
-        text: "New Zap de spion"
+        NewUntil: "2016-09-30T20:30:52",
+        HtmlPath: "https://www.youtube.com/user/LeZap2Spi0n",
+        Text: "New Zap de spion"
     },
     {
-        path: "https://www.youtube.com/watch?v=HL1UzIK-flA",
-        text: "Watch this!"
+        NewUntil: "2016-09-30T20:30:52",
+        HtmlPath: "https://www.youtube.com/watch?v=HL1UzIK-flA",
+        Text: "Watch this!"
     }
 ];
 
 // Write the number of notification
-document.getElementById('number-notifications').innerHTML = notifications.length;
+document.getElementById('number-notifications').innerHTML = notifications.length.toString();
 // Write the notification
 document.getElementById('notification-area').innerHTML = formatNotifications(notifications);
 
@@ -28,7 +30,7 @@ document.getElementById('notification-area').innerHTML = formatNotifications(not
 function formatNotifications(notifications) {
     var html = '';
     notifications.forEach(function (notif) {
-        html += '<li><a href="' + notif["path"] + '">' + notif["text"] + '</a></li>';
+        html += '<li><a href="' + notif["HtmlPath"] + '">' + notif["Text"] + '</a></li>';
     })
     return html;
 }
