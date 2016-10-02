@@ -1,7 +1,7 @@
 (function () {
     //var slackToken = getSettings(0);
     //var slackToken = getSettingsTest(0);
-    var slackToken = 'xoxp-10824024388-40848905906-72679230804-50209b8614';
+    var slackToken = ''; // Put your token here
     var templatePath = 'assets/html/slack-template.html';
 
     if (slackToken != null) {
